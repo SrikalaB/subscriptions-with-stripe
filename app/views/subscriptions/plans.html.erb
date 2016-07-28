@@ -10,7 +10,7 @@
         </div>
         <%= form_tag('/subscription_checkout', {method: :post, plan: plan}) do %>
           <input name="plan_id" type="hidden" value="<%= plan[:id] %>"></input>
-          <script class="stripe-button" data-amount="<%= (plan[:amount]) %>" data-currency="<%= plan[:currency] %>" data-email="customer@example.com" data-key="<%= STRIPE_CONFIG["#{Rails.env}"][:publishable_key] %>" src="https://checkout.stripe.com/checkout.js"></script>
+          <script class="stripe-button" data-amount="<%= (plan[:amount]) %>" data-currency="<%= plan[:currency] %>" data-email="customer@example.com" data-key="<%= STRIPE_CONFIG["#{Rails.env}"]['publishable_key'] %>" src="https://checkout.stripe.com/checkout.js"></script>
         <% end %>
       </li>
     <% end %>

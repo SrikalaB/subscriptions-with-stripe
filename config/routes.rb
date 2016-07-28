@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   resources :subscriptions
 
   get 'plans' => 'subscriptions#plans'
+
+  post 'webhooks' => 'subscriptions#webhooks'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
