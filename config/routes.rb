@@ -5,6 +5,12 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
+
+  post 'subscription_checkout' => 'subscriptions#subscription_checkout'
+
+  resources :subscriptions
+
+  get 'plans' => 'subscriptions#plans'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
