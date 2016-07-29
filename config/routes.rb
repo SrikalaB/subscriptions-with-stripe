@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get 'plans' => 'subscriptions#plans'
 
-  post 'webhooks' => 'subscriptions#webhooks'
+  mount StripeEvent::Engine, at: '/stripe/webhooks'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
