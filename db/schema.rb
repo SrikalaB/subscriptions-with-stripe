@@ -11,12 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160727170357) do
+ActiveRecord::Schema.define(version: 20160729085520) do
 
   create_table "plans", force: :cascade do |t|
     t.string   "plan_name"
     t.string   "interval"
     t.float    "cost"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
+
+  add_index "plans", ["user_id"], name: "index_plans_on_user_id"
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
