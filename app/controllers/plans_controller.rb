@@ -32,8 +32,9 @@ class PlansController < ApplicationController
     customer = Stripe::Customer.create(
             :description => "Customer for test@example.com",
             :source => params[:stripeToken],
-            :email => "test@example.com",
-            :plan => "a3e832e1-1bd1-4889-8466-8efdbfbdd94b"
+            :email => params[:customer_email],
+            :plan => params[:plan_id],
+            :quantity => params[:price].to_i
           )
     # # Save this in your DB and associate with the user;s email
     # stripe_subscription = customer.subscriptions.create(:plan => plan.id)
