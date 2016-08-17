@@ -6,11 +6,9 @@ Rails.application.routes.draw do
   # root 'welcome#index'
 
 
-  post 'subscription_checkout' => 'subscriptions#subscription_checkout'
+  post 'subscription_checkout' => 'plans#subscription_checkout'
 
-  resources :subscriptions
-
-  get 'plans' => 'subscriptions#plans'
+  resources :plans
 
   mount StripeEvent::Engine, at: '/stripe/webhooks'
   # Example of regular route:
