@@ -37,7 +37,7 @@ class PlansController < ApplicationController
             :quantity => params[:price].to_i
           )
     # # Save this in your DB and associate with the user;s email
-    # stripe_subscription = customer.subscriptions.create(:plan => plan.id)
+    User.create(email: params[:customer_email], customer_id: customer.id )
 
     flash[:notice] = "Successfully created a charge"
     redirect_to plans_path

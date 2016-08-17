@@ -1,0 +1,16 @@
+<% @stripe_subscriptions_list.each do |subscription| %>
+  <div>
+    <label>Customer Email:</label>
+    <%= User.find_by(customer_id: subscription.customer).email %>
+  </div>
+  <div>
+    <label>Plan:</label>
+    <%= subscription.plan.name %>
+  </div>
+  <div>
+    <label>Quantity:</label>
+    <%= subscription.quantity %>
+  </div>
+  <%= link_to 'Edit Quantity', edit_subscription_path(subscription.id) %>
+  <br/>
+<% end %>

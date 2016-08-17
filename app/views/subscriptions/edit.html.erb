@@ -1,0 +1,16 @@
+<div>
+  <label>Customer Email:</label>
+  <%= User.find_by(customer_id: @subscription.customer).email %>
+</div>
+<div>
+  <label>Plan:</label>
+  <%= @subscription.plan.name %>
+</div>
+<div>
+  <%= form_tag("/subscriptions/#{@subscription.id}", method: :put) do -%>
+    <label>Quantity:</label>
+    <input name="quantity" type="number">
+    <div><%= submit_tag 'Update quantity' %></div>
+  <% end -%>
+</div>
+<br/>
